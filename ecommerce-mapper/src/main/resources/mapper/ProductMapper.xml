@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecommerce.mapper.ProductMapper">
+
+    <!-- 分页查询商品列表 -->
+    <select id="findAll" resultType="com.ecommerce.model.entity.Product">
+        SELECT id, name, description, price, stock, image_url, tag, created_at, updated_at
+        FROM product
+        LIMIT #{size} OFFSET #{offset}
+    </select>
+
+    <!-- 查询商品总数 -->
+    <select id="count" resultType="long">
+        SELECT COUNT(*) FROM product
+    </select>
+
+    <!-- 按关键词搜索商品 -->
+    <select id="search" resultType="com.ecommerce.model.entity.Product">
+        SELECT id, name, description, price, stock, image_url, tag, created_at, updated_at
+        FROM product
+        WHERE name LIKE CONCAT('%', #{keyword}, '%')
+           OR description LIKE CONCAT('%', #{keyword}, '%')
+        LIMIT #{size} OFFSET #{offset}
+    </select>
+
+    <!-- 搜索结果总数 -->
+    <select id="countByKeyword" resultType="long">
+        SELECT COUNT(*)
+        FROM product
+        WHERE name LIKE CONCAT('%', #{keyword}, '%')
+           OR description LIKE CONCAT('%', #{keyword}, '%')
+    </select>
+
+    <!-- 按ID查询商品 -->
+    <select id="findById" resultType="com.ecommerce.model.entity.Product">
+        SELECT id, name, description, price, stock, image_url, tag, created_at, updated_at
+        FROM product
+        WHERE id = #{id}
+    </select>
+
+    <!-- 按标签分页查询商品 -->
+    <select id="findByTag" resultType="com.ecommerce.model.entity.Product">
+        SELECT id, name, description, price, stock, image_url, tag, created_at, updated_at
+        FROM product
+        WHERE tag = #{tag}
+        LIMIT #{size} OFFSET #{offset}
+    </select>
+
+    <!-- 按标签查询商品总数 -->
+    <select id="countByTag" resultType="long">
+        SELECT COUNT(*) FROM product WHERE tag = #{tag}
+    </select>
+
+    <!-- 插入商品 -->
+    <insert id="insert" parameterType="com.ecommerce.model.entity.Product"
+            useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO product (name, description, price, stock, image_url, tag, created_at, updated_at)
+        VALUES (#{name}, #{description}, #{price}, #{stock}, #{imageUrl}, #{tag}, #{createdAt}, #{updatedAt})
+    </insert>
+
+    <!-- 更新商品信息 -->
+    <update id="update" parameterType="com.ecommerce.model.entity.Product">
+        UPDATE product
+        SET name = #{name}, description = #{description}, price = #{price},
+            stock = #{stock}, image_url = #{imageUrl}, tag = #{tag}, updated_at = #{updatedAt}
+        WHERE id = #{id}
+    </update>
+
+    <!-- 按ID删除商品 -->
+    <delete id="deleteById">
+        DELETE FROM product WHERE id = #{id}
+    </delete>
+
+    <!-- 扣减库存 -->
+    <update id="reduceStock">
+        UPDATE product SET stock = stock - #{quantity}
+        WHERE id = #{id} AND stock >= #{quantity}
+    </update>
+
+</mapper>

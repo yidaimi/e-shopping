@@ -1,0 +1,31 @@
+# 服务端口配置
+server:
+  port: 8080
+
+# Spring 数据源配置
+spring:
+  # H2 内存数据库配置
+  datasource:
+    url: jdbc:h2:mem:ecommerce
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  # 启用 H2 控制台，方便开发调试
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  # 启动时自动执行 schema.sql 和 data.sql
+  sql:
+    init:
+      mode: always
+
+# MyBatis 配置
+mybatis:
+  # 映射文件路径
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    # 启用驼峰命名映射：数据库下划线字段自动映射到 Java 驼峰属性
+    map-underscore-to-camel-case: true
