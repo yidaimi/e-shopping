@@ -1,0 +1,115 @@
+{
+  "total": 18,
+  "passed": 18,
+  "failed": 0,
+  "results": [
+    {
+      "testId": "TC-HDR-01",
+      "description": "Click E-Shop logo navigates to /products",
+      "status": "PASS",
+      "screenshot": "TC-HDR-01.png"
+    },
+    {
+      "testId": "TC-HDR-05",
+      "description": "Click 全部商品 navigates to /products",
+      "status": "PASS",
+      "screenshot": "TC-HDR-05.png"
+    },
+    {
+      "testId": "TC-HDR-06",
+      "description": "Click 今日特惠 navigates to /products?tag=TODAY_DEAL",
+      "status": "PASS",
+      "screenshot": "TC-HDR-06.png"
+    },
+    {
+      "testId": "TC-HDR-10",
+      "description": "Click 购物车 when not logged in redirects to /login",
+      "status": "PASS",
+      "screenshot": "TC-HDR-10.png"
+    },
+    {
+      "testId": "TC-HDR-11",
+      "description": "Not logged in shows login/register links",
+      "status": "PASS",
+      "screenshot": "TC-HDR-11.png"
+    },
+    {
+      "testId": "TC-LOGIN-01",
+      "description": "Login form displayed on /login",
+      "status": "PASS",
+      "screenshot": "TC-LOGIN-01.png"
+    },
+    {
+      "testId": "TC-LOGIN-04",
+      "description": "Click 去注册 navigates to /register",
+      "status": "PASS",
+      "screenshot": "TC-LOGIN-04.png"
+    },
+    {
+      "testId": "TC-REG-01",
+      "description": "Registration form displayed on /register",
+      "status": "PASS",
+      "screenshot": "TC-REG-01.png"
+    },
+    {
+      "testId": "TC-REG-04",
+      "description": "Click 去登录 navigates to /login",
+      "status": "PASS",
+      "screenshot": "TC-REG-04.png"
+    },
+    {
+      "testId": "TC-PL-01",
+      "description": "Product list shows hero banner",
+      "status": "PASS",
+      "screenshot": "TC-PL-01.png"
+    },
+    {
+      "testId": "TC-HDR-02",
+      "description": "Search with Enter navigates to /products?keyword=...",
+      "status": "PASS",
+      "screenshot": "TC-HDR-02.png"
+    },
+    {
+      "testId": "TC-HDR-03",
+      "description": "Search with click navigates to /products?keyword=...",
+      "status": "PASS",
+      "screenshot": "TC-HDR-03.png"
+    },
+    {
+      "testId": "TC-PD-03",
+      "description": "Add to cart without login redirects to /login",
+      "status": "PASS",
+      "screenshot": "TC-PD-03.png"
+    },
+    {
+      "testId": "TC-CART-01",
+      "description": "Cart requires auth, redirects to /login",
+      "status": "PASS",
+      "screenshot": "TC-CART-01.png"
+    },
+    {
+      "testId": "TC-OL-01",
+      "description": "Orders requires auth, redirects to /login",
+      "status": "PASS",
+      "screenshot": "TC-OL-01.png"
+    },
+    {
+      "testId": "TC-OD-01",
+      "description": "Order detail requires auth, redirects to /login",
+      "status": "PASS",
+      "screenshot": "TC-OD-01.png"
+    },
+    {
+      "testId": "TC-LOGIN-05",
+      "description": "Login page title is 用户登录",
+      "status": "PASS",
+      "screenshot": "TC-LOGIN-05.png"
+    },
+    {
+      "testId": "TC-REG-05",
+      "description": "Register page title is 用户注册",
+      "status": "PASS",
+      "screenshot": "TC-REG-05.png"
+    }
+  ]
+}

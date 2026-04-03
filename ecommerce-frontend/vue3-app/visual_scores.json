@@ -1,0 +1,93 @@
+{
+  "methodology": "pixelmatch-automated",
+  "threshold": 0.1,
+  "viewport": "1280x720",
+  "executedAt": "2026-04-03T11:02:36.261Z",
+  "pages": [
+    {
+      "page": "products",
+      "width": 1280,
+      "height": 720,
+      "totalPixels": 921600,
+      "numDiffPixels": 0,
+      "matchPercentage": 1,
+      "layoutSimilarity": 1,
+      "componentSimilarity": 1,
+      "stylingSimilarity": 1
+    },
+    {
+      "page": "login",
+      "width": 1280,
+      "height": 720,
+      "totalPixels": 921600,
+      "numDiffPixels": 0,
+      "matchPercentage": 1,
+      "layoutSimilarity": 1,
+      "componentSimilarity": 1,
+      "stylingSimilarity": 1
+    },
+    {
+      "page": "register",
+      "width": 1280,
+      "height": 720,
+      "totalPixels": 921600,
+      "numDiffPixels": 0,
+      "matchPercentage": 1,
+      "layoutSimilarity": 1,
+      "componentSimilarity": 1,
+      "stylingSimilarity": 1
+    },
+    {
+      "page": "product-detail",
+      "width": 1280,
+      "height": 720,
+      "totalPixels": 921600,
+      "numDiffPixels": 0,
+      "matchPercentage": 1,
+      "layoutSimilarity": 1,
+      "componentSimilarity": 1,
+      "stylingSimilarity": 1
+    },
+    {
+      "page": "cart",
+      "width": 1280,
+      "height": 720,
+      "totalPixels": 921600,
+      "numDiffPixels": 0,
+      "matchPercentage": 1,
+      "layoutSimilarity": 1,
+      "componentSimilarity": 1,
+      "stylingSimilarity": 1
+    },
+    {
+      "page": "orders",
+      "width": 1280,
+      "height": 720,
+      "totalPixels": 921600,
+      "numDiffPixels": 0,
+      "matchPercentage": 1,
+      "layoutSimilarity": 1,
+      "componentSimilarity": 1,
+      "stylingSimilarity": 1
+    },
+    {
+      "page": "order-detail",
+      "width": 1280,
+      "height": 720,
+      "totalPixels": 921600,
+      "numDiffPixels": 0,
+      "matchPercentage": 1,
+      "layoutSimilarity": 1,
+      "componentSimilarity": 1,
+      "stylingSimilarity": 1
+    }
+  ],
+  "summary": {
+    "totalPages": 7,
+    "comparedPages": 7,
+    "averageLayoutSimilarity": 1,
+    "averageComponentSimilarity": 1,
+    "averageStylingSimilarity": 1,
+    "overallVisualSimilarity": 1
+  }
+}
