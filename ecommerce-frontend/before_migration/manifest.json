@@ -1,0 +1,71 @@
+{
+  "capturedAt": "2026-04-03T10:44:23.813Z",
+  "sourceVersion": "Vue 2.7.16",
+  "viewport": "1280x720",
+  "server_method": "npm run build + node serve-static.js on port 8080",
+  "screenshots": [
+    {
+      "file": "products.png",
+      "route": "/products",
+      "description": "Product List Page",
+      "uiState": "default",
+      "viewport": "1280x720",
+      "timestamp": "2026-04-03T10:44:25.828Z",
+      "fileSize": 243798
+    },
+    {
+      "file": "login.png",
+      "route": "/login",
+      "description": "Login Page",
+      "uiState": "default",
+      "viewport": "1280x720",
+      "timestamp": "2026-04-03T10:44:27.378Z",
+      "fileSize": 32209
+    },
+    {
+      "file": "register.png",
+      "route": "/register",
+      "description": "Register Page",
+      "uiState": "default",
+      "viewport": "1280x720",
+      "timestamp": "2026-04-03T10:44:28.928Z",
+      "fileSize": 34606
+    },
+    {
+      "file": "product-detail.png",
+      "route": "/product/1",
+      "description": "Product Detail Page",
+      "uiState": "default",
+      "viewport": "1280x720",
+      "timestamp": "2026-04-03T10:44:30.475Z",
+      "fileSize": 22682
+    },
+    {
+      "file": "cart.png",
+      "route": "/cart",
+      "description": "Cart Page (requires auth)",
+      "uiState": "default",
+      "viewport": "1280x720",
+      "timestamp": "2026-04-03T10:44:32.028Z",
+      "fileSize": 32209
+    },
+    {
+      "file": "orders.png",
+      "route": "/orders",
+      "description": "Order List Page (requires auth)",
+      "uiState": "default",
+      "viewport": "1280x720",
+      "timestamp": "2026-04-03T10:44:33.578Z",
+      "fileSize": 32209
+    },
+    {
+      "file": "order-detail.png",
+      "route": "/order/1",
+      "description": "Order Detail Page (requires auth)",
+      "uiState": "default",
+      "viewport": "1280x720",
+      "timestamp": "2026-04-03T10:44:35.128Z",
+      "fileSize": 32209
+    }
+  ]
+}
