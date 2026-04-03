@@ -11,5 +11,22 @@
 | 2 | components/AppHeader.vue | ✅ Migrated | ✅ Pass | ref, computed, useRouter |
 | 3 | components/Pagination.vue | ✅ Migrated | ✅ Pass | defineProps, defineEmits, computed |
 | 4 | components/ProductCard.vue | ✅ Migrated | ✅ Pass | defineProps, useRouter |
+| 5 | views/Login.vue | ✅ Migrated | ✅ Pass | ref, useRouter |
+| 6 | views/Register.vue | ✅ Migrated | ✅ Pass | ref, useRouter, setTimeout |
+| 7 | views/ProductList.vue | ✅ Migrated | ✅ Pass | ref, watch route.query, useRoute |
+| 8 | views/ProductDetail.vue | ✅ Migrated | ✅ Pass | ref, watch route.params.id, useRouter |
+| 9 | views/Cart.vue | ✅ Migrated | ✅ Pass | ref, useRouter, loadCart on setup |
+| 10 | views/OrderList.vue | ✅ Migrated | ✅ Pass | ref, useRouter, loadOrders on setup |
+| 11 | views/OrderDetail.vue | ✅ Migrated | ✅ Pass | ref, useRoute, loadOrder on setup |
 
-## Current Progress: 4/11 components migrated
+## Current Progress: 11/11 components migrated ✅ COMPLETE
+
+## API Layer Migrated
+- src/api/request.js ✅ (axios interceptors, Vue Router 4 import)
+- src/api/user.js ✅ (unchanged, pure functions)
+- src/api/product.js ✅ (unchanged, pure functions)
+- src/api/cart.js ✅ (unchanged, pure functions)
+- src/api/order.js ✅ (unchanged, pure functions)
+
+## Router Migrated
+- src/router/index.js ✅ (createRouter, createWebHistory, return-based beforeEach)
