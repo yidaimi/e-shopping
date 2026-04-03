@@ -1,0 +1,48 @@
+# Traceability Matrix — Business Rules, Flows, UI Tests → Test Cases
+
+## Business Rules → Unit Tests
+
+| Business Rule | Test File | Test Description |
+|---------------|-----------|-----------------|
+| BR-AUTH-08 (token check) | BusinessRules.spec.js | Authentication Logic tests |
+| BR-VAL-01 (quantity >= 1) | BusinessRules.spec.js | Quantity Validation tests |
+| BR-VAL-02 (search keyword) | AppHeader.spec.js | Search input placeholder test |
+| BR-VAL-04 (prev disabled) | Pagination.spec.js | Disable 上一页 on first page |
+| BR-VAL-05 (next disabled) | Pagination.spec.js | Disable 下一页 on last page |
+| BR-VAL-06 (page change) | Pagination.spec.js | Emit/not emit page-change |
+| BR-DATA-01 (pagination) | BusinessRules.spec.js | Pagination Calculation tests |
+| BR-DISP-01 (price format) | ProductCard.spec.js, BusinessRules.spec.js | Price integer/decimal split |
+| BR-DISP-03 (tag labels) | BusinessRules.spec.js | Tag Label Mapping tests |
+| BR-DISP-04 (image fallback) | ProductCard.spec.js | Image error handler test |
+| BR-DISP-12 (stock/stars) | ProductCard.spec.js | Stock count and stars display |
+| BR-DISP-13 (free delivery) | ProductCard.spec.js | Free delivery text test |
+| BR-WORK-01 (login redirect) | AuthViews.spec.js | Login form rendering |
+| BR-WORK-02 (register redirect) | AuthViews.spec.js | Register form rendering |
+
+## Application Flows → UI Behavior Tests (Playwright)
+
+| Flow | Test IDs | Description |
+|------|----------|-------------|
+| Flow 2 (Login) | TC-LOGIN-01 to TC-LOGIN-05 | Login form display, navigation |
+| Flow 1 (Register) | TC-REG-01 to TC-REG-05 | Registration form display, navigation |
+| Flow 3 (Logout) | TC-HDR-13 | Logout navigation |
+| Flow 4 (Browse) | TC-PL-01 | Hero banner, product grid |
+| Flow 5 (Search) | TC-HDR-02, TC-HDR-03 | Search with Enter and button |
+| Flow 6 (Tag Filter) | TC-HDR-06 to TC-HDR-09 | Tag navigation |
+| Flow 8 (Add to Cart) | TC-PD-03 | Auth check before cart add |
+| Flow 9 (Cart) | TC-CART-01 | Cart auth guard |
+| Flow 11 (Orders) | TC-OL-01 | Orders auth guard |
+| Flow 12 (Order Detail) | TC-OD-01 | Order detail auth guard |
+| Flow 14 (Auth Guard) | TC-CART-01, TC-OL-01, TC-OD-01, TC-HDR-10 | All auth guard redirects |
+
+## Visual Regression → Screenshot Pairs
+
+| Before Screenshot | After Screenshot | Comparison |
+|-------------------|-----------------|------------|
+| before_migration/products.png | after_migration/final-validation/products.png | 1.0000 match |
+| before_migration/login.png | after_migration/final-validation/login.png | 1.0000 match |
+| before_migration/register.png | after_migration/final-validation/register.png | 1.0000 match |
+| before_migration/product-detail.png | after_migration/final-validation/product-detail.png | 1.0000 match |
+| before_migration/cart.png | after_migration/final-validation/cart.png | 1.0000 match |
+| before_migration/orders.png | after_migration/final-validation/orders.png | 1.0000 match |
+| before_migration/order-detail.png | after_migration/final-validation/order-detail.png | 1.0000 match |
