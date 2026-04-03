@@ -1,0 +1,132 @@
+# Application Flows — E-Shop E-Commerce Platform
+
+## Flow 1: User Registration
+
+1. User navigates to /register
+2. User fills in username, password, and email fields
+3. User clicks "注册" button
+4. System calls POST /api/user/register with { username, password, email }
+5a. SUCCESS: Success message "注册成功，即将跳转到登录页..." is displayed in green
+6a. After 1.5 seconds, user is automatically redirected to /login
+5b. FAILURE: Error message from server (or default "注册失败，请稍后重试") is displayed in red
+6b. User remains on registration page and can retry
+
+## Flow 2: User Login
+
+1. User navigates to /login
+2. User fills in username and password fields
+3. User clicks "登录" button
+4. System calls POST /api/user/login with { username, password }
+5a. SUCCESS: JWT token from res.data is stored in localStorage under key 'token'
+6a. User is redirected to /products
+5b. FAILURE: Error message from server (or default "登录失败，请检查用户名和密码") is displayed in red
+6b. User remains on login page and can retry
+
+## Flow 3: User Logout
+
+1. User clicks "退出登录" in the header navigation (only visible when logged in)
+2. Token is removed from localStorage
+3. User is redirected to /login
+
+## Flow 4: Browse Products (Default)
+
+1. User navigates to /products (or root /)
+2. Route watcher detects no keyword and no tag in query parameters
+3. System calls GET /api/product/list?page=0&size=12
+4. Hero banner is displayed at the top
+5. Section title "为你推荐" is shown
+6. Product cards are displayed in a responsive grid
+7. Pagination is shown if total > 12
+
+## Flow 5: Search Products
+
+1. User types a keyword in the header search input
+2. User presses Enter or clicks the search button 🔍
+3. If keyword is empty after trim, user is navigated to /products (no keyword)
+4. If keyword is non-empty, user is navigated to /products?keyword={keyword}
+5. Route watcher detects keyword in query parameters
+6. System calls GET /api/product/search?keyword={keyword}&page=0&size=12
+7. Search result hint "搜索 '{keyword}' 的结果 共 {total} 件商品" is displayed
+8. Hero banner is hidden
+9. Matching products are displayed in grid
+
+## Flow 6: Filter Products by Tag
+
+1. User clicks a tag link in the sub-navigation (今日特惠/新品上市/热销排行/品牌精选)
+2. User is navigated to /products?tag={TAG}
+3. Route watcher detects tag in query parameters
+4. Tag label is mapped (e.g., TODAY_DEAL → "🔥 今日特惠")
+5. System calls GET /api/product/tag/{tag}?page=0&size=12
+6. Tag filter hint with tag label and total count is displayed
+7. Hero banner is hidden
+8. Matching products are displayed in grid
+
+## Flow 7: View Product Detail
+
+1. User clicks on a product card
+2. User is navigated to /product/{id}
+3. Route param watcher triggers loadProduct(id)
+4. System calls GET /api/product/{id}
+5a. SUCCESS: Product details are displayed including name, description, price, stock, quantity input, and "加入购物车" button
+5b. FAILURE: Error message "商品加载失败" is shown
+
+## Flow 8: Add to Cart
+
+1. User is on product detail page
+2. User adjusts quantity (default 1, min 1)
+3. User clicks "加入购物车"
+4. System checks if user is logged in (isLoggedIn())
+4a. NOT LOGGED IN: User is redirected to /login
+4b. LOGGED IN: System calls POST /api/cart with { productId, quantity }
+5a. SUCCESS: Green message "已加入购物车" is shown
+5b. FAILURE: Error message from server (or default "加入购物车失败") is shown in red
+
+## Flow 9: View and Manage Cart
+
+1. User navigates to /cart (requires auth, redirects to /login if no token)
+2. System calls GET /api/cart
+3a. EMPTY CART: "购物车是空的，快去挑选商品吧！" with "去购物" button
+3b. NON-EMPTY: Cart table is displayed with columns: 商品, 单价, 数量, 小计, 操作
+4. User can increase quantity: clicks "+" button → PUT /api/cart/{itemId} with { quantity: current+1 } → cart reloads
+5. User can decrease quantity: clicks "-" button (disabled at 1) → PUT /api/cart/{itemId} with { quantity: current-1 } → cart reloads
+6. User can type a new quantity in input → PUT /api/cart/{itemId} with { quantity: newQty } → cart reloads
+7. User can delete an item: clicks "删除" → DELETE /api/cart/{itemId} → success message "已从购物车中移除" → cart reloads
+8. Total price is displayed at the bottom
+
+## Flow 10: Submit Order
+
+1. User is on cart page with items
+2. User clicks "提交订单"
+3. System calls POST /api/order with empty body {}
+4a. SUCCESS: User is redirected to /orders
+4b. FAILURE: Error message from server (or default "提交订单失败") is shown in red
+
+## Flow 11: View Orders
+
+1. User navigates to /orders (requires auth)
+2. System calls GET /api/order/list
+3a. EMPTY: "暂无订单记录" with "去购物" button
+3b. NON-EMPTY: Order cards displayed with: 订单编号, 状态 badge, 金额, 创建时间, arrow "›"
+4. User clicks an order card → navigated to /order/{orderId}
+
+## Flow 12: View Order Detail
+
+1. User navigates to /order/{id} (requires auth)
+2. System calls GET /api/order/{id}
+3. Order info card displays: 订单编号, 订单状态 (with color badge), 创建时间, 订单总额
+4. 商品清单 table shows: 商品名称, 单价, 数量
+5. "← 返回订单列表" link navigates back to /orders
+
+## Flow 13: Page Navigation (Pagination)
+
+1. User is on product list with more than 12 products
+2. Pagination component is shown with page buttons
+3. User clicks a page number → currentPage updates → loadProducts() is called with new page → window scrolls to top
+4. User clicks "上一页" (disabled on first page) → currentPage - 1
+5. User clicks "下一页" (disabled on last page) → currentPage + 1
+
+## Flow 14: Auth Guard Redirect
+
+1. User (not logged in) attempts to access /cart, /orders, or /order/:id
+2. Router beforeEach guard detects meta.requiresAuth and no token in localStorage
+3. User is redirected to /login

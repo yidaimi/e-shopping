@@ -1,0 +1,66 @@
+# Business Rules — E-Shop E-Commerce Platform
+
+## Authentication & Authorization
+
+BR-AUTH-01: Users authenticate via JWT tokens stored in localStorage under the key 'token'.
+BR-AUTH-02: On successful login, the JWT token from the response (res.data) is stored in localStorage.
+BR-AUTH-03: On logout, the token is removed from localStorage.
+BR-AUTH-04: Every API request automatically includes an Authorization header with format "Bearer {token}" if a token exists in localStorage.
+BR-AUTH-05: If any API response returns HTTP 401, the token is automatically removed from localStorage and the user is redirected to the login page.
+BR-AUTH-06: Routes with meta.requiresAuth (cart, orders, order detail) require a valid token. Users without a token are redirected to /login.
+BR-AUTH-07: Public routes (products, product detail, login, register) do not require authentication.
+BR-AUTH-08: The login check is performed by verifying the existence of a non-null token in localStorage (isLoggedIn function).
+
+## Validation Rules
+
+BR-VAL-01: Product quantity in cart must be >= 1. If a user enters a value less than 1, it is corrected to 1.
+BR-VAL-02: Search keyword must not be empty after trimming. Empty search navigates to the default product list without keyword parameter.
+BR-VAL-03: Cart quantity decrease is disabled (button disabled) when quantity is already 1.
+BR-VAL-04: Pagination previous button is disabled when currentPage <= 0.
+BR-VAL-05: Pagination next button is disabled when currentPage >= totalPages - 1.
+BR-VAL-06: Page navigation only triggers if the target page is different from the current page and within valid range [0, totalPages).
+
+## Data Rules
+
+BR-DATA-01: Product listing uses server-side pagination with 0-based page numbering and page size of 12.
+BR-DATA-02: Cart items include: productId, productName, productImageUrl, productPrice, quantity, subtotal.
+BR-DATA-03: Cart has a computed totalPrice that represents the sum of all item subtotals.
+BR-DATA-04: Orders are created from the current user's cart contents via POST /api/order.
+BR-DATA-05: Product data includes: id, name, description, imageUrl, price, stock, tags.
+BR-DATA-06: Order data includes: id, status (CREATED/PAID/CANCELLED), totalAmount, createdAt, items.
+BR-DATA-07: Order items include: productName, productPrice, quantity.
+
+## Display Rules
+
+BR-DISP-01: Product prices are split into integer and decimal parts for display. Integer part uses toLocaleString() for thousands separator. Decimal part is always 2 digits.
+BR-DISP-02: Product stock <= 5 is highlighted with red color and bold text (class "low-stock").
+BR-DISP-03: Tag labels are mapped as follows: TODAY_DEAL → "🔥 今日特惠", NEW → "✨ 新品上市", HOT → "🏆 热销排行", BRAND → "💎 品牌精选".
+BR-DISP-04: When a product image fails to load, a default fallback image from picsum.photos is used.
+BR-DISP-05: Order status badges use color coding: CREATED → blue (#1890ff on #e6f7ff), PAID → green (#52c41a on #f6ffed), CANCELLED → gray (#999 on #f5f5f5).
+BR-DISP-06: The hero banner is only displayed on the product list when there is no search keyword and no tag filter active.
+BR-DISP-07: The section title "为你推荐" is only displayed when there is no search keyword and no tag filter.
+BR-DISP-08: Search results show the keyword highlighted in orange (#C7511F) with total count.
+BR-DISP-09: Empty product state shows 📦 icon with text "暂无商品数据".
+BR-DISP-10: Empty cart shows message "购物车是空的，快去挑选商品吧！" with a "去购物" button.
+BR-DISP-11: Empty order list shows "暂无订单记录" with a "去购物" button.
+BR-DISP-12: Product cards show "★★★★☆" rating stars and "{stock} 件有货" text.
+BR-DISP-13: Product cards show "免费配送" delivery text.
+BR-DISP-14: Pagination is only shown when total > pageSize (more than one page of results).
+
+## Workflow Rules
+
+BR-WORK-01: After successful login, user is redirected to /products.
+BR-WORK-02: After successful registration, a success message "注册成功，即将跳转到登录页..." is shown and user is redirected to /login after 1.5 seconds.
+BR-WORK-03: After successful order submission, user is redirected to /orders.
+BR-WORK-04: Adding to cart requires login. If user is not logged in, they are redirected to /login.
+BR-WORK-05: After adding to cart successfully, a green success message "已加入购物车" is shown.
+BR-WORK-06: After removing a cart item, a success message "已从购物车中移除" is shown and the cart is reloaded.
+BR-WORK-07: When page changes on product list, window scrolls to top smoothly.
+BR-WORK-08: Route query parameter changes (keyword, tag) trigger product list reload and reset page to 0.
+
+## Limits & Constraints
+
+BR-LIM-01: API request timeout is set to 15000ms (15 seconds).
+BR-LIM-02: Product card title is limited to 2 lines with CSS text overflow (line-clamp 2).
+BR-LIM-03: Product card description is limited to 2 lines with CSS text overflow (line-clamp 2).
+BR-LIM-04: The navigation bar is a dual-layer design: main nav (dark #131921) and sub nav (#232F3E).
