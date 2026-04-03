@@ -56,7 +56,7 @@ mvn spring-boot:run -pl ecommerce-web
 ```bash
 cd ecommerce-frontend
 npm install
-ng serve --proxy-config proxy.conf.json
+npm start
 ```
 
 前端启动后访问：http://localhost:4200
