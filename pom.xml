@@ -26,7 +26,6 @@
         <module>ecommerce-mapper</module>
         <module>ecommerce-service</module>
         <module>ecommerce-web</module>
-        <module>ecommerce-frontend</module>
     </modules>
 
     <!-- 统一版本管理 -->

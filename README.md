@@ -1,6 +1,6 @@
 # E-Shop 电商网站
 
-基于 Spring Boot 2.7 + MyBatis + Angular 16 的全栈电商网站，采用 Maven 多模块架构。
+基于 Spring Boot 2.7 + MyBatis + Vue 2 的全栈电商网站，采用 Maven 多模块架构。
 
 ## 技术栈
 
@@ -10,7 +10,7 @@
 | ORM | MyBatis 3.5 |
 | 数据库 | H2（内存模式，启动自动建表） |
 | 认证 | JWT + BCrypt |
-| 前端框架 | Angular 16 |
+| 前端框架 | Vue 2.7 + Vue Router 3 + axios |
 | 构建工具 | Maven 3.x + npm |
 
 ## 项目结构
@@ -22,8 +22,8 @@ ecommerce-website/
 ├── ecommerce-mapper/      # 数据访问：MyBatis Mapper + XML
 ├── ecommerce-service/     # 业务逻辑：Service 接口和实现
 ├── ecommerce-web/         # Web 层：Controller、拦截器、启动类
-├── ecommerce-frontend/    # 前端：Angular SPA
-└── pom.xml                # 根 POM
+├── ecommerce-frontend/    # 前端：Vue 2 SPA（独立工程，不参与 Maven 构建）
+└── pom.xml                # 根 POM（仅管理后端模块）
 ```
 
 ## 环境要求
@@ -56,7 +56,7 @@ mvn spring-boot:run -pl ecommerce-web
 ```bash
 cd ecommerce-frontend
 npm install
-npm start
+npm run serve
 ```
 
 前端启动后访问：http://localhost:4200
@@ -137,10 +137,10 @@ java -jar ecommerce-web/target/ecommerce-web-1.0.0-SNAPSHOT.jar
 
 ```bash
 cd ecommerce-frontend
-ng build --configuration production
+npm run build
 ```
 
-生成的静态文件在 `ecommerce-frontend/dist/ecommerce-frontend/`，可部署到 Nginx 等 Web 服务器。
+生成的静态文件在 `ecommerce-frontend/dist/`，可部署到 Nginx 等 Web 服务器。
 
 ## .gitignore 建议
 
