@@ -30,7 +30,7 @@
 
     <!-- 统一版本管理 -->
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <mybatis-spring-boot.version>2.3.2</mybatis-spring-boot.version>
         <jjwt.version>0.9.1</jjwt.version>
