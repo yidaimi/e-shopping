@@ -2,9 +2,11 @@ package com.ecommerce.common;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.security.Keys;
 import org.springframework.stereotype.Component;
 
+import javax.crypto.SecretKey;
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
 /**
@@ -20,6 +22,9 @@ public class JwtUtil {
     /** token 过期时间：24 小时（毫秒） */
     private static final long EXPIRATION = 86400000L;
 
+    /** 使用 HMAC-SHA 算法生成的密钥对象 */
+    private static final SecretKey KEY = Keys.hmacShaKeyFor(SECRET_KEY.getBytes(StandardCharsets.UTF_8));
+
     /**
      * 生成 JWT token
      *
@@ -29,11 +34,11 @@ public class JwtUtil {
      */
     public String generateToken(Long userId, String role) {
         return Jwts.builder()
-                .setSubject(userId.toString())
+                .subject(userId.toString())
                 .claim("role", role)
-                .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION))
-                .signWith(SignatureAlgorithm.HS256, SECRET_KEY)
+                .issuedAt(new Date())
+                .expiration(new Date(System.currentTimeMillis() + EXPIRATION))
+                .signWith(KEY)
                 .compact();
     }
 
@@ -82,8 +87,9 @@ public class JwtUtil {
      */
     private Claims parseToken(String token) {
         return Jwts.parser()
-                .setSigningKey(SECRET_KEY)
-                .parseClaimsJws(token)
-                .getBody();
+                .verifyWith(KEY)
+                .build()
+                .parseSignedClaims(token)
+                .getPayload();
     }
 }
