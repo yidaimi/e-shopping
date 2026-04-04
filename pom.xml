@@ -34,7 +34,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <mybatis-spring-boot.version>3.0.4</mybatis-spring-boot.version>
         <jjwt.version>0.12.6</jjwt.version>
-        <jqwik.version>1.7.4</jqwik.version>
+        <jqwik.version>1.9.1</jqwik.version>
     </properties>
 
     <!-- 依赖版本管理：子模块引用时无需指定版本 -->
