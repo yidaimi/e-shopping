@@ -33,10 +33,16 @@
             <artifactId>jjwt</artifactId>
         </dependency>
 
-        <!-- JAXB API（JWT 在 Java 11+ 环境需要） -->
+        <!-- Jakarta XML Bind API -->
         <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+        </dependency>
+
+        <!-- JAXB Runtime Implementation -->
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
         </dependency>
 
         <!-- 测试依赖 -->

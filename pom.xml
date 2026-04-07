@@ -35,7 +35,8 @@
         <mybatis-spring-boot.version>2.3.2</mybatis-spring-boot.version>
         <jjwt.version>0.9.1</jjwt.version>
         <jqwik.version>1.7.4</jqwik.version>
-        <jaxb-api.version>2.3.1</jaxb-api.version>
+        <jakarta.xml.bind-api.version>4.0.2</jakarta.xml.bind-api.version>
+        <jaxb-runtime.version>4.0.5</jaxb-runtime.version>
     </properties>
 
     <!-- 依赖版本管理：子模块引用时无需指定版本 -->
@@ -82,11 +83,18 @@
                 <version>${jjwt.version}</version>
             </dependency>
 
-            <!-- JAXB API（Java 11+ 需要显式引入） -->
+            <!-- Jakarta XML Bind API -->
             <dependency>
-                <groupId>javax.xml.bind</groupId>
-                <artifactId>jaxb-api</artifactId>
-                <version>${jaxb-api.version}</version>
+                <groupId>jakarta.xml.bind</groupId>
+                <artifactId>jakarta.xml.bind-api</artifactId>
+                <version>${jakarta.xml.bind-api.version}</version>
+            </dependency>
+
+            <!-- JAXB Runtime Implementation -->
+            <dependency>
+                <groupId>org.glassfish.jaxb</groupId>
+                <artifactId>jaxb-runtime</artifactId>
+                <version>${jaxb-runtime.version}</version>
             </dependency>
 
             <!-- jqwik 属性测试框架 -->
