@@ -32,13 +32,22 @@
 <script setup>
 import { computed } from 'vue'
 
-const props = withDefaults(defineProps(), {
+const props = defineProps({
   /** 当前页码（从0开始） */
-  currentPage: 0,
+  currentPage: {
+    type: Number,
+    default: 0
+  },
   /** 数据总数 */
-  total: 0,
+  total: {
+    type: Number,
+    default: 0
+  },
   /** 每页大小 */
-  pageSize: 10
+  pageSize: {
+    type: Number,
+    default: 10
+  }
 })
 
 const emit = defineEmits(['page-change'])

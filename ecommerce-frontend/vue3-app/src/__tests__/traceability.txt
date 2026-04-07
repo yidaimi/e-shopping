@@ -1,0 +1,72 @@
+# Test Traceability Matrix / 测试追溯矩阵
+
+## Business Rules → Test Cases
+
+| Business Rule | Unit Test | E2E Test |
+|--------------|-----------|----------|
+| BR-Auth-1: JWT token in localStorage key='token' | BusinessRules.test.js: "should use TOKEN_KEY" | UI Test #1 |
+| BR-Auth-2: Bearer token in Authorization header | BusinessRules.test.js: token tests | - |
+| BR-Auth-3: 401 clears token and redirects | BusinessRules.test.js: "logout should clear token" | - |
+| BR-Auth-4: requiresAuth route meta | BusinessRules.test.js: "auth routes require auth" | UI Test #7-#11 |
+| BR-Auth-5: Route guard checks token | BusinessRules.test.js: "auth routes require auth" | - |
+| BR-Auth-6: Logout clears token | BusinessRules.test.js: "logout should clear token" | - |
+| BR-Valid-1: Quantity >= 1 | BusinessRules.test.js: "quantity corrected to 1" | - |
+| BR-Valid-2: Cart quantity >= 1 | BusinessRules.test.js: "should not update quantity" | - |
+| BR-Display-1: Price format ¥+whole+decimal | ProductCard.test.js: "format price correctly" | UI Test #23 |
+| BR-Display-2: Low stock warning | ProductCard.test.js: stock display test | - |
+| BR-Display-3: Tag label mapping | BusinessRules.test.js: "tag label mappings" | UI Test #30 |
+| BR-Display-4: Search result display | - | UI Test #29 |
+| BR-Display-7: Empty state 暂无商品数据 | - | UI Test #25 |
+| BR-Nav-1: Root redirect to /products | BusinessRules.test.js: "root path redirect" | UI Test #11 |
+| BR-Nav-2: Search navigation | AppHeader.test.js: search test | UI Test #29 |
+
+## Application Flows → Test Cases
+
+| Flow | Unit Test | E2E Test |
+|------|-----------|----------|
+| Flow-1: Register | AuthViews.test.js: Register tests | UI Test #19, #20 |
+| Flow-2: Login | AuthViews.test.js: Login tests | UI Test #14, #15 |
+| Flow-3: Logout | AppHeader.test.js: logout test | - |
+| Flow-4: Product List | - | UI Test #23, #25 |
+| Flow-5: Search | - | UI Test #29 |
+| Flow-6: Tag Filter | - | UI Test #7, #8, #9, #10, #30 |
+| Flow-7: Pagination | Pagination.test.js: all tests | - |
+| Flow-8: Product Detail | - | - (requires API) |
+| Flow-9: Add to Cart | - | - (requires API) |
+| Flow-10: Cart Operations | - | - (requires API) |
+| Flow-11: Submit Order | - | - (requires API) |
+| Flow-12: Order List | - | - (requires API) |
+| Flow-13: Order Detail | - | - (requires API) |
+
+## UI Test Cases (ui_tests_vue2.md) → Vue 3 Verification
+
+| UI Test ID | Vue 2 Result | Vue 3 Result | Screenshot |
+|-----------|-------------|-------------|------------|
+| 1 | ✅ PASS | ✅ PASS | test-1.png |
+| 2 | ✅ PASS | ✅ PASS | test-2.png |
+| 7 | ✅ PASS | ✅ PASS | test-7.png |
+| 8 | ✅ PASS | ✅ PASS | test-8.png |
+| 9 | ✅ PASS | ✅ PASS | test-9.png |
+| 10 | ✅ PASS | ✅ PASS | test-10.png |
+| 11 | ✅ PASS | ✅ PASS | test-11.png |
+| 14 | ✅ PASS | ✅ PASS | test-14.png |
+| 15 | ✅ PASS | ✅ PASS | test-15.png |
+| 19 | ✅ PASS | ✅ PASS | test-19.png |
+| 20 | ✅ PASS | ✅ PASS | test-20.png |
+| 23 | ✅ PASS | ✅ PASS | test-23.png |
+| 25 | ✅ PASS | ✅ PASS | test-25.png |
+| 29 | N/A | ✅ PASS | test-29.png |
+| 30 | N/A | ✅ PASS | test-30.png |
+
+## Visual Regression Screenshots
+
+| Before Screenshot | After Screenshot | Match % |
+|------------------|-----------------|---------|
+| before_migration/products.png | after_migration/final-validation/products.png | 100% |
+| before_migration/login.png | after_migration/final-validation/login.png | 100% |
+| before_migration/register.png | after_migration/final-validation/register.png | 100% |
+| before_migration/products-tag-today.png | after_migration/final-validation/products-tag-today.png | 100% |
+| before_migration/products-tag-new.png | after_migration/final-validation/products-tag-new.png | 100% |
+| before_migration/products-tag-hot.png | after_migration/final-validation/products-tag-hot.png | 100% |
+| before_migration/products-tag-brand.png | after_migration/final-validation/products-tag-brand.png | 100% |
+| before_migration/products-search.png | after_migration/final-validation/products-search.png | 100% |
