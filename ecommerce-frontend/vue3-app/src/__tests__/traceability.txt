@@ -1,0 +1,54 @@
+# Traceability Matrix
+# Maps business rules, application flows, UI tests, and screenshots to test cases
+
+## Business Rule → Test Case Mapping
+
+| Business Rule | Unit Test | E2E Test |
+|--------------|-----------|----------|
+| BR-AUTH-01: JWT in localStorage | BusinessRules.test.js: BR-AUTH-01 | - |
+| BR-AUTH-04: Route guard | BusinessRules.test.js | ui-behavior.spec.js: Route guard tests |
+| BR-AUTH-07: isLoggedIn | BusinessRules.test.js: BR-AUTH-07 | ui-behavior.spec.js: TC-HDR-10 |
+| BR-VAL-03: Cart qty >= 1 | BusinessRules.test.js: BR-VAL-03 | - |
+| BR-DATA-01: Page size 12 | BusinessRules.test.js, Pagination.test.js | - |
+| BR-DATA-02: 0-based pagination | Pagination.test.js | - |
+| BR-DATA-05: Tag labels | BusinessRules.test.js: BR-DATA-05 | ui-behavior.spec.js: TC-HDR-05 |
+| BR-DISP-01/02/03: Price format | ProductCard.test.js | - |
+| BR-DISP-04: Image fallback | ProductCard.test.js | - |
+| BR-DISP-11: Header login state | AppHeader.test.js | ui-behavior.spec.js: TC-HDR-10 |
+| BR-FLOW-01: Register redirect | Auth.test.js | - |
+| BR-FLOW-02: Login redirect | Auth.test.js | - |
+| BR-FLOW-05: Logout | AppHeader.test.js, BusinessRules.test.js | - |
+| BR-LIMIT-02: Page size 12 | BusinessRules.test.js | - |
+
+## Application Flow → Test Case Mapping
+
+| Flow | Unit Test | E2E Test |
+|------|-----------|----------|
+| Flow 1: Registration | Auth.test.js: Register tests | ui-behavior.spec.js: TC-REG-01, TC-REG-04 |
+| Flow 2: Login | Auth.test.js: Login tests | ui-behavior.spec.js: TC-LOGIN-01, TC-LOGIN-04 |
+| Flow 3: Product Browsing | ProductCard.test.js | ui-behavior.spec.js: TC-PL-01, TC-PL-08 |
+| Flow 7: Navigation | AppHeader.test.js | ui-behavior.spec.js: TC-HDR-* |
+
+## UI Test → Screenshot Mapping
+
+| UI Test | Screenshot |
+|---------|-----------|
+| TC-HDR-01 | after_migration/ui-behavior-tests/TC-HDR-01.png |
+| TC-HDR-05 | after_migration/ui-behavior-tests/TC-HDR-05.png |
+| TC-HDR-09 | after_migration/ui-behavior-tests/TC-HDR-09.png |
+| TC-HDR-10 | after_migration/ui-behavior-tests/TC-HDR-10.png |
+| TC-HDR-13 | after_migration/ui-behavior-tests/TC-HDR-13.png |
+| TC-LOGIN-01 | after_migration/ui-behavior-tests/TC-LOGIN-01.png |
+| TC-LOGIN-04 | after_migration/ui-behavior-tests/TC-LOGIN-04.png |
+| TC-REG-01 | after_migration/ui-behavior-tests/TC-REG-01.png |
+| TC-REG-04 | after_migration/ui-behavior-tests/TC-REG-04.png |
+| TC-PL-01 | after_migration/ui-behavior-tests/TC-PL-01.png |
+| TC-PL-08 | after_migration/ui-behavior-tests/TC-PL-08.png |
+
+## Visual Regression Screenshot Pairs
+
+| Page | Before | After | Score |
+|------|--------|-------|-------|
+| Products | before_migration/products.png | after_migration/final-validation/products.png | 1.0000 |
+| Login | before_migration/login.png | after_migration/final-validation/login.png | 1.0000 |
+| Register | before_migration/register.png | after_migration/final-validation/register.png | 1.0000 |
