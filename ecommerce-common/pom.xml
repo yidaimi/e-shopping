@@ -27,22 +27,20 @@
             <artifactId>spring-security-crypto</artifactId>
         </dependency>
 
-        <!-- JWT 令牌库 -->
+        <!-- JWT 令牌库（模块化） -->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt</artifactId>
+            <artifactId>jjwt-api</artifactId>
         </dependency>
-
-        <!-- Jakarta XML Bind API -->
         <dependency>
-            <groupId>jakarta.xml.bind</groupId>
-            <artifactId>jakarta.xml.bind-api</artifactId>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+            <scope>runtime</scope>
         </dependency>
-
-        <!-- JAXB Runtime Implementation -->
         <dependency>
-            <groupId>org.glassfish.jaxb</groupId>
-            <artifactId>jaxb-runtime</artifactId>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId>
+            <scope>runtime</scope>
         </dependency>
 
         <!-- 测试依赖 -->
