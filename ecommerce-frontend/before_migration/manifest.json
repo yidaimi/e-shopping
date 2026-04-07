@@ -1,67 +1,98 @@
 {
-  "captureDate": "2026-04-07T10:07:10.859Z",
+  "screenshots": [
+    {
+      "file": "products.png",
+      "route": "/products",
+      "description": "Product List - Main page",
+      "viewport": "1280x720",
+      "timestamp": "2026-04-07T12:14:51.619Z",
+      "fileSize": 243798
+    },
+    {
+      "file": "login.png",
+      "route": "/login",
+      "description": "Login page",
+      "viewport": "1280x720",
+      "timestamp": "2026-04-07T12:14:53.169Z",
+      "fileSize": 32209
+    },
+    {
+      "file": "register.png",
+      "route": "/register",
+      "description": "Register page",
+      "viewport": "1280x720",
+      "timestamp": "2026-04-07T12:14:54.719Z",
+      "fileSize": 34606
+    },
+    {
+      "file": "product-detail-1.png",
+      "route": "/product/1",
+      "description": "Product Detail - Product 1",
+      "viewport": "1280x720",
+      "timestamp": "2026-04-07T12:14:56.267Z",
+      "fileSize": 22682
+    },
+    {
+      "file": "cart-unauthenticated.png",
+      "route": "/cart",
+      "description": "Cart - redirects to login when unauthenticated",
+      "viewport": "1280x720",
+      "timestamp": "2026-04-07T12:14:57.819Z",
+      "fileSize": 32209
+    },
+    {
+      "file": "orders-unauthenticated.png",
+      "route": "/orders",
+      "description": "Orders - redirects to login when unauthenticated",
+      "viewport": "1280x720",
+      "timestamp": "2026-04-07T12:14:59.369Z",
+      "fileSize": 32209
+    },
+    {
+      "file": "products-tag-today.png",
+      "route": "/products?tag=TODAY_DEAL",
+      "description": "Products - Today Deal tag",
+      "viewport": "1280x720",
+      "timestamp": "2026-04-07T12:15:00.918Z",
+      "fileSize": 26889
+    },
+    {
+      "file": "products-tag-new.png",
+      "route": "/products?tag=NEW",
+      "description": "Products - New tag",
+      "viewport": "1280x720",
+      "timestamp": "2026-04-07T12:15:02.468Z",
+      "fileSize": 26556
+    },
+    {
+      "file": "products-tag-hot.png",
+      "route": "/products?tag=HOT",
+      "description": "Products - Hot tag",
+      "viewport": "1280x720",
+      "timestamp": "2026-04-07T12:15:04.018Z",
+      "fileSize": 27116
+    },
+    {
+      "file": "products-tag-brand.png",
+      "route": "/products?tag=BRAND",
+      "description": "Products - Brand tag",
+      "viewport": "1280x720",
+      "timestamp": "2026-04-07T12:15:05.567Z",
+      "fileSize": 27104
+    },
+    {
+      "file": "products-search.png",
+      "route": "/products?keyword=test",
+      "description": "Products - Search keyword",
+      "viewport": "1280x720",
+      "timestamp": "2026-04-07T12:15:07.117Z",
+      "fileSize": 28458
+    }
+  ],
+  "captureDate": "2026-04-07T12:14:49.633Z",
   "viewport": {
     "width": 1280,
     "height": 720
   },
-  "baseURL": "http://localhost:8080",
-  "sourceVersion": "Vue 2.7.16",
-  "server_method": "npm run build && npx serve dist -l 8080",
-  "screenshots": [
-    {
-      "file": "before_migration/products.png",
-      "route": "/products",
-      "description": "Product List Page (Home)",
-      "viewport": {
-        "width": 1280,
-        "height": 720
-      },
-      "timestamp": "2026-04-07T10:07:13.776Z",
-      "fileSize": 243798
-    },
-    {
-      "file": "before_migration/login.png",
-      "route": "/login",
-      "description": "Login Page",
-      "viewport": {
-        "width": 1280,
-        "height": 720
-      },
-      "timestamp": "2026-04-07T10:07:15.476Z",
-      "fileSize": 32209
-    },
-    {
-      "file": "before_migration/register.png",
-      "route": "/register",
-      "description": "Register Page",
-      "viewport": {
-        "width": 1280,
-        "height": 720
-      },
-      "timestamp": "2026-04-07T10:07:17.076Z",
-      "fileSize": 34606
-    },
-    {
-      "file": "before_migration/cart.png",
-      "route": "/cart",
-      "description": "Cart Page (requires auth)",
-      "viewport": {
-        "width": 1280,
-        "height": 720
-      },
-      "timestamp": "2026-04-07T10:07:18.676Z",
-      "fileSize": 32209
-    },
-    {
-      "file": "before_migration/orders.png",
-      "route": "/orders",
-      "description": "Order List Page (requires auth)",
-      "viewport": {
-        "width": 1280,
-        "height": 720
-      },
-      "timestamp": "2026-04-07T10:07:20.276Z",
-      "fileSize": 32209
-    }
-  ]
+  "server_method": "npm run build + npx serve dist -l 8080"
 }

@@ -18,6 +18,17 @@ export default defineConfig({
     {
       name: 'chromium',
       use: { browserName: 'chromium' },
+      testMatch: /\/(ui-behavior|flow-steps|business-rules|accessibility)\.spec\.js$/,
+    },
+    {
+      name: 'firefox',
+      use: { browserName: 'firefox' },
+      testMatch: /\/cross-browser\.spec\.js$/,
+    },
+    {
+      name: 'chromium-cross-browser',
+      use: { browserName: 'chromium' },
+      testMatch: /\/cross-browser\.spec\.js$/,
     },
   ],
   webServer: {
