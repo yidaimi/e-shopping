@@ -1,0 +1,88 @@
+{
+  "methodology": "pixelmatch-automated",
+  "timestamp": "2026-04-07T12:39:39.360Z",
+  "viewport": "1280x720",
+  "threshold": 0.1,
+  "pages": [
+    {
+      "page": "products",
+      "layout": 1,
+      "component": 1,
+      "styling": 1,
+      "overall": 1,
+      "numDiffPixels": 0,
+      "totalPixels": 921600
+    },
+    {
+      "page": "login",
+      "layout": 1,
+      "component": 1,
+      "styling": 1,
+      "overall": 1,
+      "numDiffPixels": 0,
+      "totalPixels": 921600
+    },
+    {
+      "page": "register",
+      "layout": 1,
+      "component": 1,
+      "styling": 1,
+      "overall": 1,
+      "numDiffPixels": 0,
+      "totalPixels": 921600
+    },
+    {
+      "page": "products-tag-today",
+      "layout": 1,
+      "component": 1,
+      "styling": 1,
+      "overall": 1,
+      "numDiffPixels": 0,
+      "totalPixels": 921600
+    },
+    {
+      "page": "products-tag-new",
+      "layout": 1,
+      "component": 1,
+      "styling": 1,
+      "overall": 1,
+      "numDiffPixels": 0,
+      "totalPixels": 921600
+    },
+    {
+      "page": "products-tag-hot",
+      "layout": 1,
+      "component": 1,
+      "styling": 1,
+      "overall": 1,
+      "numDiffPixels": 0,
+      "totalPixels": 921600
+    },
+    {
+      "page": "products-tag-brand",
+      "layout": 1,
+      "component": 1,
+      "styling": 1,
+      "overall": 1,
+      "numDiffPixels": 0,
+      "totalPixels": 921600
+    },
+    {
+      "page": "products-search",
+      "layout": 1,
+      "component": 1,
+      "styling": 1,
+      "overall": 1,
+      "numDiffPixels": 0,
+      "totalPixels": 921600
+    }
+  ],
+  "summary": {
+    "totalPages": 8,
+    "validComparisons": 8,
+    "overallVisualSimilarity": 1,
+    "avgLayout": 1,
+    "avgComponent": 1,
+    "avgStyling": 1
+  }
+}
