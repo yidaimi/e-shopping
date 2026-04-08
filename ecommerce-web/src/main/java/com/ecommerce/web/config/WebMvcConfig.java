@@ -41,8 +41,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/api/**")
-                // 允许 Angular 开发服务器的来源
-                .allowedOrigins("http://localhost:4200")
+                // 允许所有来源的跨域请求
+                .allowedOriginPatterns("*")
                 // 允许的 HTTP 方法
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 // 允许所有请求头
